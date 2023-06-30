@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxi6l7b6hs6v2"]
+
+[ext_resource type="Script" path="res://kanji_canvas/kanji_canvas.gd" id="1_60trj"]
+
+[node name="KanjiCanvas" type="Node2D"]
+script = ExtResource("1_60trj")
