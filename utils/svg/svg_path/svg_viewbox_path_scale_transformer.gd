@@ -14,11 +14,11 @@ func _init(initial_viewbox: Rect2, scale_viewbox: Rect2) -> void:
 	scale_aspect = scale_viewbox.size / initial_viewbox.size
 
 
-func _transform_point(initial_point: Vector2) -> Vector2:
+func transform_point(initial_point: Vector2) -> Vector2:
 	return (initial_point - initial_shift) * scale_aspect + scale_shift
 
 
 func transform_line(line: Line2D) -> Line2D:
 	for i in line.get_point_count():
-		line.set_point_position(i, _transform_point(line.get_point_position(i)))
+		line.set_point_position(i, transform_point(line.get_point_position(i)))
 	return line

@@ -9,8 +9,11 @@ func _init(attributes: Dictionary) -> void:
 	attrs = attributes
 	
 
-func draw(initial_viewbox: Rect2, scale_viewbox: Rect2) -> Array[SvgDrawLine]:
-	var result: Array[SvgDrawLine] = []
+func collect_pathes() -> Array[SvgPath]:
+	var result: Array[SvgPath] = []
 	for child in get_children():
-		result.append_array(child.draw(initial_viewbox, scale_viewbox))
+		if child is SvgPath:
+			result.append(child)
+		elif child is SvgElement:
+			result.append_array(child.collect_pathes())
 	return result

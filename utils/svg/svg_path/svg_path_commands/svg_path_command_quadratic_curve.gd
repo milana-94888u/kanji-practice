@@ -17,7 +17,7 @@ func draw(num_of_points := 0, line: Line2D = null) -> Line2D:
 	if num_of_points == 0:
 		num_of_points = 1000
 
-	for i in num_of_points + 1:
+	for i in num_of_points:
 		line.add_point(point_at(float(i) / num_of_points))
 	return line
 
