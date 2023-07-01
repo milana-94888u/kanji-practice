@@ -52,13 +52,15 @@ func _extend_line(mouse_position: Vector2) -> void:
 
 
 func _end_line(_mouse_position: Vector2) -> void:
+	if not is_drawing:
+		return
 	is_drawing = false
 	var real_line := svg_pathes[current_path].draw(
 		svg_viewbox, draw_viewbox, active_line.get_point_count()
 	)
 	var distance := _calc_curves_distance(active_line, real_line)
 	remove_child(active_line)
-	if distance > MAX_VALID_DISTANCE:
+	if distance > MAX_VALID_DISTANCE or is_nan(distance):
 		return
 	add_child(real_line)
 	
