@@ -12,13 +12,14 @@ grow_vertical = 2
 script = ExtResource("1_lcua4")
 
 [node name="ItemList" type="ItemList" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = 100.0
 offset_top = 100.0
 offset_right = 700.0
 offset_bottom = 700.0
-item_count = 2
-item_0/text = "人"
-item_1/text = "動"
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+max_columns = 12
+fixed_column_width = 50
 
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]

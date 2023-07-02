@@ -29,7 +29,9 @@ func _ready() -> void:
 	svg_pathes = svg.collect_pathes()
 	max_valid_distance = (svg_viewbox.size.x + svg_viewbox.size.y) / 20
 	
-	draw_viewbox = Rect2(100, 100, 600, 600)
+	var viewport_rect := get_viewport_rect()
+	var square: Vector2 = min(viewport_rect.size.x, viewport_rect.size.y) * 0.95 * Vector2.ONE
+	draw_viewbox = Rect2((viewport_rect.position + viewport_rect.end - square) / 2, square)
 	_calc_next_point()
 
 
