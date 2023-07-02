@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuumfjafx2pj6"]
+[gd_scene load_steps=3 format=3 uid="uid://57bmg5yp6wqk"]
 
-[ext_resource type="Script" path="res://src/level_select/scene_changer.gd" id="1_mg7w4"]
 [ext_resource type="PackedScene" uid="uid://cc5t5e561wx1n" path="res://src/level_select/level_select.tscn" id="2_yt5vy"]
 
+[sub_resource type="GDScript" id="GDScript_yxb1w"]
+script/source = "extends Node
+
+
+@onready var packed_kanji_canvas := preload(\"res://src/kanji_canvas/kanji_canvas.tscn\")
+@onready var level_select := $LevelSelect
+
+var kanji_canvas
+
+
+func _ready() -> void:
+	$LevelSelect.connect(\"level_selected\", _switch_to_level)
+
+
+func _switch_to_level(svg_path: String) -> void:
+	kanji_canvas = packed_kanji_canvas.instantiate()
+	kanji_canvas.setup(svg_path)
+	kanji_canvas.connect(\"kanji_finished\", _return_to_menu)
+	remove_child(level_select)
+	add_child(kanji_canvas)
+
+
+func _return_to_menu() -> void:
+	remove_child(kanji_canvas)
+	add_child(level_select)
+"
+
 [node name="SceneChanger" type="Node"]
-script = ExtResource("1_mg7w4")
+script = SubResource("GDScript_yxb1w")
 
 [node name="LevelSelect" parent="." instance=ExtResource("2_yt5vy")]
