@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Kanji practice"
-run/main_scene="res://kanji_canvas/kanji_canvas.tscn"
+run/main_scene="res://src/level_select/scene_changer.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=800
+window/handheld/orientation=1
 
 [rendering]
 

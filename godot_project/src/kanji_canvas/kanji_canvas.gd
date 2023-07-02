@@ -1,27 +1,19 @@
 extends Node2D
 
+signal kanji_finished
 
-const MAX_VALID_DISTANCE := 30
-
+var svg_path: String
 
 var svg_viewbox: Rect2
 var svg_pathes: Array[SvgPath]
 var current_path := 0
 var next_point: Vector2
+var max_valid_distance: float
 
 var draw_viewbox: Rect2
 
 var active_line: SvgDrawLine
 var is_drawing := false
-
-
-func _ready() -> void:
-	var svg := SvgParser.parse("res://052d5.svg")
-	svg_viewbox = svg.viewbox
-	svg_pathes = svg.collect_pathes()
-	
-	draw_viewbox = Rect2(300, 100, 400, 400)
-	_calc_next_point()
 
 
 func _calc_next_point() -> void:
@@ -32,13 +24,33 @@ func _calc_next_point() -> void:
 	)
 
 
+func setup(path: String) -> void:
+	svg_path = path
+
+
+func _ready() -> void:
+	var svg := SvgParser.parse(svg_path)
+	svg_viewbox = svg.viewbox
+	svg_pathes = svg.collect_pathes()
+	max_valid_distance = (svg_viewbox.size.x + svg_viewbox.size.y) / 20
+	
+	draw_viewbox = Rect2(100, 100, 600, 600)
+	_calc_next_point()
+
+
 func _draw() -> void:
 	draw_rect(draw_viewbox, Color.WHEAT)
 	draw_circle(next_point, 30, Color.REBECCA_PURPLE)
 
 
 func _start_line(click_position: Vector2) -> void:
-	if click_position.distance_to(next_point) > MAX_VALID_DISTANCE:
+	if SvgVeiwboxScaleTransformer.new(
+		draw_viewbox, svg_viewbox
+	).transform_point(
+		click_position
+	).distance_to(
+		svg_pathes[current_path].position
+	) > max_valid_distance:
 		return
 	is_drawing = true
 	active_line = SvgDrawLine.new()
@@ -55,24 +67,26 @@ func _end_line(_mouse_position: Vector2) -> void:
 	if not is_drawing:
 		return
 	is_drawing = false
-	var real_line := svg_pathes[current_path].draw(
-		svg_viewbox, draw_viewbox, active_line.get_point_count()
+	var real_line := svg_pathes[current_path].draw(active_line.get_point_count())
+	var distance := _calc_curves_distance(
+		SvgVeiwboxScaleTransformer.new(
+			draw_viewbox, svg_viewbox
+		).transform_line(active_line), real_line
 	)
-	var distance := _calc_curves_distance(active_line, real_line)
 	remove_child(active_line)
-	if distance > MAX_VALID_DISTANCE or is_nan(distance):
+	if distance > max_valid_distance or is_nan(distance):
 		return
-	add_child(real_line)
+	add_child(SvgVeiwboxScaleTransformer.new(svg_viewbox, draw_viewbox).transform_line(real_line))
 	
 	current_path += 1
 	if current_path == svg_pathes.size():
-		queue_free()
+		emit_signal("kanji_finished")
 	else:
 		_calc_next_point()
 		queue_redraw()
 
 
-# TODO: fast Frechet distance
+# TODO: improve distance calc (Frechet distance, scaled from ends, etc.)
 func _calc_curves_distance(left_curve: Line2D, right_curve: Line2D) -> float:
 	if left_curve.get_point_count() != right_curve.get_point_count():
 		return NAN

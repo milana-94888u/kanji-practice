@@ -39,9 +39,9 @@ func split_points_count_proportional(points_count: int) -> Array[int]:
 
 
 
-func draw(initial_viewbox: Rect2, scale_viewbox: Rect2, points_count: int) -> SvgDrawLine:
+func draw(points_count: int) -> SvgDrawLine:
 	var line := SvgDrawLine.new()
 	var points_count_proportional := split_points_count_proportional(points_count)
 	for command_idx in commands.size():
 		line = commands[command_idx].draw(points_count_proportional[command_idx], line)
-	return SvgVeiwboxScaleTransformer.new(initial_viewbox, scale_viewbox).transform_line(line)
+	return line
