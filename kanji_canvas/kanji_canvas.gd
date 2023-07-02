@@ -16,7 +16,7 @@ var is_drawing := false
 
 
 func _ready() -> void:
-	var svg := SvgParser.parse("052d5.svg")
+	var svg := SvgParser.parse("res://052d5.svg")
 	svg_viewbox = svg.viewbox
 	svg_pathes = svg.collect_pathes()
 	
