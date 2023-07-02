@@ -1,8 +1,5 @@
 extends Node2D
 
-signal kanji_finished
-
-var svg_path: String
 
 var svg_viewbox: Rect2
 var svg_pathes: Array[SvgPath]
@@ -24,12 +21,10 @@ func _calc_next_point() -> void:
 	)
 
 
-func setup(path: String) -> void:
-	svg_path = path
-
-
 func _ready() -> void:
-	var svg := SvgParser.parse(svg_path)
+	var svg := SvgParser.parse(
+		"res://assets/kanji/%05x.svg" % LoadedKanjiInfo.current_kanji.unicode_at(0)
+	)
 	svg_viewbox = svg.viewbox
 	svg_pathes = svg.collect_pathes()
 	max_valid_distance = (svg_viewbox.size.x + svg_viewbox.size.y) / 20
@@ -80,7 +75,7 @@ func _end_line(_mouse_position: Vector2) -> void:
 	
 	current_path += 1
 	if current_path == svg_pathes.size():
-		emit_signal("kanji_finished")
+		get_tree().change_scene_to_file("res://src/level_select/level_select.tscn")
 	else:
 		_calc_next_point()
 		queue_redraw()
