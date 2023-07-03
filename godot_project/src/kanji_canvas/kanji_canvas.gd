@@ -85,7 +85,7 @@ func _end_line(_mouse_position: Vector2) -> void:
 
 # TODO: improve distance calc (Frechet distance, scaled from ends, etc.)
 func _calc_curves_distance(left_curve: Line2D, right_curve: Line2D) -> float:
-	if left_curve.get_point_count() != right_curve.get_point_count():
+	if left_curve.get_point_count() != right_curve.get_point_count() or left_curve.get_point_count() == 1:
 		return NAN
 	var squared_distance_sum := 0.0
 	for idx in left_curve.get_point_count():
