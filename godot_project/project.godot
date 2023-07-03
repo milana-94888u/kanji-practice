@@ -21,7 +21,7 @@ LoadedKanjiInfo="*res://src/utils/loaded_kanji_info.gd"
 
 [display]
 
-window/size/viewport_width=800
+window/size/viewport_width=600
 window/size/viewport_height=800
 window/handheld/orientation=1
 
