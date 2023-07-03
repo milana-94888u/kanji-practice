@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ru5vgalla8d0"]
+
+[ext_resource type="Script" path="res://src/level_select/level_select_button.gd" id="1_vw24r"]
+
+[node name="LevelSelectButton" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+mouse_filter = 1
+script = ExtResource("1_vw24r")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -11,15 +11,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lcua4")
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 offset_left = 100.0
 offset_top = 100.0
 offset_right = 700.0
 offset_bottom = 700.0
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
-max_columns = 12
-fixed_column_width = 50
+horizontal_scroll_mode = 0
 
-[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 12
