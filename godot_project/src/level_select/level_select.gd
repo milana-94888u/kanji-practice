@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var grid := $VBoxContainer/GridAspectAspect/GridAspect/GridContainer
+@onready var grid := $VBoxContainer/GridAspectAspect/SubViewportContainer/SubViewport/GridAspect/GridContainer
 
 
 var kanji_select_button_packed := preload("res://src/level_select/level_select_button.tscn")
@@ -25,8 +25,8 @@ func _fill_with_kanjis() -> void:
 	) else (
 		LoadedKanjiInfo.kanji_list.size() - current_block * 100
 	)
-	var lines := (kanji_count - 1) / 10 + 1
-	$VBoxContainer/GridAspectAspect/GridAspect.ratio = 10.0 / lines
+	var lines := int(kanji_count - 1) / 10 + 1
+	$VBoxContainer/GridAspectAspect/SubViewportContainer/SubViewport/GridAspect.ratio = 10.0 / lines
 	for kanji in LoadedKanjiInfo.kanji_list.slice(current_block * 100, current_block * 100 + 100):
 		var kanji_button := kanji_select_button_packed.instantiate() as Control
 		LoadedKanjiInfo.current_kanji = kanji

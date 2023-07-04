@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	LoadedKanjiInfo.current_kanji = text
-	get_tree().change_scene_to_file("res://src/kanji_canvas/kanji_canvas.tscn")
+	get_tree().change_scene_to_file("res://src/kanji_drawing_level/kanji_drawing_level.tscn")

@@ -16,7 +16,7 @@ func _init(attributes: Dictionary) -> void:
 	super._init(attributes)
 
 
-func collect_pathes() -> Array[SvgPath]:
+func collect_paths() -> Array[SvgPath]:
 	var result: Array[SvgPath] = []
 	for child in get_children():
 		if child is SvgPath:

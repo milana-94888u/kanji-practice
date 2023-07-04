@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://yqv0h04fc3my"]
+
+[ext_resource type="Script" path="res://src/kanji_drawing_level/kanji_canvas.gd" id="1_rb4ba"]
+
+[node name="KanjiCanvas" type="SubViewport"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(600, 800)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+script = ExtResource("1_rb4ba")
+
+[node name="LineToDrawWith" type="Line2D" parent="."]
+default_color = Color(0.152941, 0.133333, 0.121569, 1)

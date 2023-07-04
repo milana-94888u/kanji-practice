@@ -26,11 +26,28 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridAspect" type="AspectRatioContainer" parent="VBoxContainer/GridAspectAspect"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/GridAspectAspect"]
 layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/GridAspectAspect/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(500, 500)
+size_2d_override = Vector2i(800, 800)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="GridAspect" type="AspectRatioContainer" parent="VBoxContainer/GridAspectAspect/SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment_vertical = 0
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/GridAspectAspect/GridAspect"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/GridAspectAspect/SubViewportContainer/SubViewport/GridAspect"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

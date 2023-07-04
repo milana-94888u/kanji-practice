@@ -39,8 +39,9 @@ func split_points_count_proportional(points_count: int) -> Array[int]:
 
 
 
-func draw(points_count: int) -> SvgDrawLine:
-	var line := SvgDrawLine.new()
+func draw(points_count: int, line: Line2D = null) -> Line2D:
+	if line == null:
+		line = Line2D.new()
 	var points_count_proportional := split_points_count_proportional(points_count)
 	for command_idx in commands.size():
 		line = commands[command_idx].draw(points_count_proportional[command_idx], line)
