@@ -3,12 +3,11 @@
 [ext_resource type="Script" path="res://src/level_select/level_select_button.gd" id="1_vw24r"]
 
 [node name="LevelSelectButton" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
 mouse_filter = 1
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 48
 script = ExtResource("1_vw24r")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

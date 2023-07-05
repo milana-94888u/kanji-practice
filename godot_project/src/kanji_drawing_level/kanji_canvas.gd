@@ -1,5 +1,8 @@
 extends SubViewport
 
+
+signal drawing_finished
+
 const MIN_DISTANCE_BETWEEN_POINTS := 0.05
 const MAX_VALID_DISTANCE_TO_HALF_PERIMETER_RATIO := 0.1
 var max_valid_distance: float
@@ -12,15 +15,24 @@ var is_drawing := false
 var drawing_line: Line2D
 
 
-func _ready() -> void:
+func setup() -> void:
+	for child in get_children():
+		if child is Line2D and child != line_to_draw_with:
+			remove_child(child)
+
 	var svg := SvgParser.parse(
 		"res://assets/kanji/%05x.svg" % LoadedKanjiInfo.current_kanji.unicode_at(0)
 	)
 	size_2d_override = svg.viewbox.size
 	
 	real_strokes = svg.collect_paths()
+	current_stroke = 0
 	max_valid_distance = (svg.viewbox.size.x + svg.viewbox.size.y) * MAX_VALID_DISTANCE_TO_HALF_PERIMETER_RATIO
 	line_to_draw_with.width = 0.15 * max_valid_distance
+
+
+func _ready() -> void:
+	setup()
 
 
 func _start_line(click_position: Vector2) -> void:
@@ -50,7 +62,7 @@ func _end_line(_mouse_position: Vector2) -> void:
 	
 	current_stroke += 1
 	if current_stroke == real_strokes.size():
-		get_tree().change_scene_to_file("res://src/level_select/level_select.tscn")
+		emit_signal("drawing_finished")
 
 
 

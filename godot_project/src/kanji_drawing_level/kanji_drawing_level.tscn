@@ -45,3 +45,5 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.960784, 0.870588, 0.701961, 1)
+
+[connection signal="drawing_finished" from="VBoxContainer/AspectRatioContainer/SubViewportContainer/KanjiCanvas" to="." method="_on_kanji_canvas_drawing_finished"]
