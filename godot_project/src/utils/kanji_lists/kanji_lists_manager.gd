@@ -8,14 +8,22 @@ enum GameMode {
 }
 
 
+@onready var packed_level_selection_menu := preload("res://src/level_selection/level_selection_menu.tscn")
+
+
 func add_kanji_list(lists_block: String, kanji_list_name: String, kanji_list: Array) -> void:
 	kanji_lists[lists_block][kanji_list_name] = kanji_list
+	LoadedKanjiInfo.kanji_list = kanji_list
+	var kanji_list_menu := packed_level_selection_menu.instantiate()
+	kanji_lists_controls[kanji_list_name] = kanji_list_menu
 	for kanji in kanji_list:
 		kanji_scores["recognition"][kanji] = 0.0
 		kanji_scores["writing"][kanji] = 0.0
 		if kanji_in_lists.has(kanji):
+			kanji_in_controls[kanji].append(kanji_list_menu)
 			kanji_in_lists[kanji].append(kanji_list)
 		else:
+			kanji_in_controls[kanji] = [kanji_list_menu]
 			kanji_in_lists[kanji] = [kanji_list]
 
 
@@ -71,6 +79,10 @@ var kanji_scores := {
 	"recognition": {},
 	"writing": {},
 }
+
+
+var kanji_in_controls := {}
+var kanji_lists_controls := {}
 
 
 var kanji_lists := {
