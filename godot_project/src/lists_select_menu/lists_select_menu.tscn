@@ -1,0 +1,149 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2bi0osbrluad"]
+
+[ext_resource type="Script" path="res://src/lists_select_menu/lists_select_menu.gd" id="1_nxdsq"]
+
+[node name="ListsSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nxdsq")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="kana" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="hiragana" type="Button" parent="TabContainer/kana"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "hiragana"
+
+[node name="katakana" type="Button" parent="TabContainer/kana"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "katakana
+"
+
+[node name="jlpt" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="kanji_jlpt5" type="Button" parent="TabContainer/jlpt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jlpt5"
+
+[node name="kanji_jlpt4" type="Button" parent="TabContainer/jlpt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jlpt4"
+
+[node name="kanji_jlpt3" type="Button" parent="TabContainer/jlpt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jlpt3"
+
+[node name="kanji_jlpt2" type="Button" parent="TabContainer/jlpt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jlpt2"
+
+[node name="kanji_jlpt1" type="Button" parent="TabContainer/jlpt"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jlpt1"
+
+[node name="primary" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="kanji_kanken10" type="Button" parent="TabContainer/primary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken10"
+
+[node name="kanji_kanken9" type="Button" parent="TabContainer/primary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken9"
+
+[node name="kanji_kanken8" type="Button" parent="TabContainer/primary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken8"
+
+[node name="kanji_kanken7" type="Button" parent="TabContainer/primary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken7"
+
+[node name="kanji_kanken6" type="Button" parent="TabContainer/primary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken6"
+
+[node name="kanji_kanken5" type="Button" parent="TabContainer/primary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken5"
+
+[node name="secondary" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="kanji_kanken4" type="Button" parent="TabContainer/secondary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken4"
+
+[node name="kanji_kanken3" type="Button" parent="TabContainer/secondary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken3"
+
+[node name="kanji_kanken2_5" type="Button" parent="TabContainer/secondary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken2.5"
+
+[node name="kanji_kanken2" type="Button" parent="TabContainer/secondary"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken2"
+
+[node name="advanced" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+
+[node name="kanji_kanken1_5" type="Button" parent="TabContainer/advanced"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken1.5"
+
+[node name="kanji_kanken1" type="Button" parent="TabContainer/advanced"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_kanken1"
+
+[node name="jinmeiyou" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="kanji_jinmeiyou_simple" type="Button" parent="TabContainer/jinmeiyou"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jinmeiyou_simple"
+
+[node name="kanji_jinmeiyou_forms" type="Button" parent="TabContainer/jinmeiyou"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "kanji_jinmeiyou_forms"

@@ -15,6 +15,7 @@ func add_kanji_list(lists_block: String, kanji_list_name: String, kanji_list: Ar
 	kanji_lists[lists_block][kanji_list_name] = kanji_list
 	LoadedKanjiInfo.kanji_list = kanji_list
 	var kanji_list_menu := packed_level_selection_menu.instantiate()
+	kanji_list_menu.name = kanji_list_name
 	kanji_lists_controls[kanji_list_name] = kanji_list_menu
 	for kanji in kanji_list:
 		kanji_scores["recognition"][kanji] = 0.0
