@@ -147,3 +147,5 @@ text = "kanji_jinmeiyou_simple"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "kanji_jinmeiyou_forms"
+
+[connection signal="pressed" from="TabContainer/kana/hiragana" to="." method="_on_hiragana_pressed" binds= ["text"]]
