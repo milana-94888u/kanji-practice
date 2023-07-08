@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://xy36vv7q1cja"]
+
+[ext_resource type="Script" path="res://src/level_selection/level_selection_menu.gd" id="1_lu8b5"]
+[ext_resource type="PackedScene" uid="uid://dm6ee0pll5ulg" path="res://src/level_selection/level_selection_list.tscn" id="2_didgu"]
+[ext_resource type="PackedScene" uid="uid://clu5nlkxfr68m" path="res://src/kanji_drawing_level/kanji_drawing_level.tscn" id="3_2w4wk"]
+
+[node name="LevelSelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lu8b5")
+
+[node name="LevelSelectionList" parent="." instance=ExtResource("2_didgu")]
+layout_mode = 1
+
+[node name="KanjiDrawingLevel" parent="." instance=ExtResource("3_2w4wk")]
+visible = false
+layout_mode = 1
+
+[connection signal="level_selected" from="LevelSelectionList" to="." method="_on_level_selection_list_level_selected"]
+[connection signal="return_to_level_menu_required" from="KanjiDrawingLevel" to="." method="_on_kanji_drawing_level_return_to_level_menu_required"]

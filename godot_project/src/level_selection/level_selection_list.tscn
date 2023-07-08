@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm6ee0pll5ulg"]
 
 [ext_resource type="Theme" uid="uid://cfxhkqqrj26pv" path="res://assets/themes/level_selection_list.tres" id="1_e25h7"]
-[ext_resource type="Script" path="res://src/level_selection/level_selection_list_fill.gd" id="2_r0jm2"]
+[ext_resource type="Script" path="res://src/level_selection/level_selection_list.gd" id="2_yxykw"]
 
 [node name="LevelSelectionList" type="AspectRatioContainer"]
 anchors_preset = 15
@@ -12,6 +12,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_e25h7")
+script = ExtResource("2_yxykw")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 2
@@ -38,4 +39,3 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("2_r0jm2")
