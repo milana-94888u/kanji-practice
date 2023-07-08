@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Kanji practice"
-run/main_scene="res://src/level_select/level_select.tscn"
-config/features=PackedStringArray("4.0", "GL Compatibility")
+run/main_scene="res://src/level_selection/level_selection_list.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
 LoadedKanjiInfo="*res://src/utils/loaded_kanji_info.gd"
+KanjiListsManager="*res://src/utils/kanji_lists/kanji_lists_manager.gd"
 
 [debug]
 

@@ -1,0 +1,67 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cfxhkqqrj26pv"]
+
+[ext_resource type="FontFile" uid="uid://bv3y5hh5dwar8" path="res://assets/dfkyokasho std w3.otf" id="1_5mj4s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cufo8"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmxu2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 8.0
+content_margin_bottom = 10.0
+bg_color = Color(0.643137, 0.592157, 0.509804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_03sme"]
+thickness = 10
+vertical = true
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_5mj4s")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_cufo8")
+Button/styles/pressed = null
+HFlowContainer/constants/h_separation = 8
+HFlowContainer/constants/v_separation = 8
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_fmxu2")
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_03sme")
+VScrollBar/styles/scroll_focus = null
