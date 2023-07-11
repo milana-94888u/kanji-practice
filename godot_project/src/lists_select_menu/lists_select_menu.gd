@@ -26,6 +26,8 @@ func add_kanji_lists_block_tab(kanji_lists_block: String) -> void:
 	tab_container.add_child(kanji_lists_block_tab)
 	for kanji_list_name in KanjiListsManager.kanji_lists.get(kanji_lists_block):
 		kanji_lists.append(KanjiListsManager.kanji_lists_controls[kanji_list_name])
+		KanjiListsManager.kanji_lists_controls[kanji_list_name].connect("level_selected", func(): set_process(false))
+		KanjiListsManager.kanji_lists_controls[kanji_list_name].connect("return_to_level_menu_required", func(): set_process(true))
 		kanji_lists_block_tab.add_child(KanjiListsManager.kanji_lists_controls[kanji_list_name])
 
 
