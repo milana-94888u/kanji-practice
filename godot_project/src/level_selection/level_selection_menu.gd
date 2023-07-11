@@ -10,3 +10,7 @@ func _on_level_selection_list_level_selected() -> void:
 func _on_kanji_drawing_level_return_to_level_menu_required() -> void:
 	$KanjiDrawingLevel.visible = false
 	$LevelSelectionList.visible = true
+
+
+func add_buttons_batch() -> bool:
+	return $LevelSelectionList.add_buttons_batch()
