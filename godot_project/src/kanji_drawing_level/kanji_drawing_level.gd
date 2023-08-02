@@ -1,12 +1,11 @@
 extends Control
-class_name KanjiDrawinLevel
 
 
 signal return_to_level_menu_required
 
 
 func setup() -> void:
-	$VBoxContainer/KanjiLabel.text = LoadedKanjiInfo.current_kanji
+	$VBoxContainer/KanjiLabel.text = LevelListsManager.current_level
 	$VBoxContainer/AspectRatioContainer/SubViewportContainer/KanjiCanvas.setup()
 
 
@@ -15,4 +14,4 @@ func _ready() -> void:
 
 
 func _on_kanji_canvas_drawing_finished() -> void:
-	emit_signal("return_to_level_menu_required")
+	get_tree().change_scene_to_packed(LevelListsManager.level_selection_menu)

@@ -1,0 +1,18 @@
+,en,ja,ru
+recognition,Recognition,見覚え,Распознавание
+reading,Reading,読み方,Чтение
+writing,Writing,書き方,Написание
+word_writing,Word Writing,言葉の書き方,Написание слов
+kana,Kana,仮名,Кана
+jlpt,JLPT,日本語能力試験,Нихонго норёку сикен
+primary,Primary,教育漢字,Кёику-кандзи
+secondary,Secondary,常用漢字,Дзёё-кандзи
+advanced,Advanced,漢字検定,Кандзи кэнтэй
+jinmeiyou,Jinmeiyou,人名用,Дзиммэйё
+hiragana,Hiragana,平仮名,Хирагана
+katakana,Katakana,片仮名,Катакана
+kanji_jlpt5,N5,N5,N5
+kanji_jlpt4,N4,N4,N4
+kanji_jlpt3,N3,N3,N3
+kanji_jlpt2,N2,N2,N2
+kanji_jlpt1,N1,N1,N1

@@ -21,7 +21,7 @@ func setup() -> void:
 			remove_child(child)
 
 	var svg := SvgParser.parse(
-		"res://assets/kanji/%05x.svg" % LoadedKanjiInfo.current_kanji.unicode_at(0)
+		"res://assets/kanji/%05x.svg" % LevelListsManager.current_level.unicode_at(0)
 	)
 	size_2d_override = svg.viewbox.size
 	
