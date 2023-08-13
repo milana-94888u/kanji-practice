@@ -94,6 +94,16 @@ func _on_right_button_pressed() -> void:
 	set_page(current_page + 1)
 
 
-func _on_back_button_pressed() -> void:
+func go_back() -> void:
 	LevelListsManager.current_list_name = ""
 	get_tree().change_scene_to_packed(LevelListsManager.main_menu)
+
+
+func _on_back_button_pressed() -> void:
+	go_back()
+
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_WM_GO_BACK_REQUEST:
+			go_back()

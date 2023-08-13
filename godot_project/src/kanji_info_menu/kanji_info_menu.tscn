@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqpvd8jqiysue"]
+
+[ext_resource type="PackedScene" uid="uid://yqv0h04fc3my" path="res://src/kanji_drawing_level/kanji_canvas.tscn" id="1_tdnio"]
+
+[node name="KanjiInfoMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="KanjiCanvas" parent="SubViewportContainer" instance=ExtResource("1_tdnio")]
+size = Vector2i(600, 600)
+
+[node name="DrawBackground" type="ColorRect" parent="SubViewportContainer/KanjiCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.960784, 0.870588, 0.701961, 1)
