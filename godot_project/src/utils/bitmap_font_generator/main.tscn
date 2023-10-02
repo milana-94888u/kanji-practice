@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://1yk7tq3oj3m0"]
+[gd_scene load_steps=7 format=3 uid="uid://1yk7tq3oj3m0"]
 
-[ext_resource type="PackedScene" uid="uid://bjtme0vapcphp" path="res://src/utils/bitmap_font_generator/bitmap_font_generator.tscn" id="1_4me1b"]
+[ext_resource type="FontFile" uid="uid://bf2r16uus3c6p" path="res://bmpfont.png" id="1_1tf3n"]
+[ext_resource type="Script" path="res://src/utils/bitmap_font_generator/main.gd" id="1_740ma"]
+[ext_resource type="FontFile" uid="uid://chfetimkwrisj" path="res://bmpfont_small.png" id="3_hqqyc"]
+[ext_resource type="Texture2D" uid="uid://f3yjwortu5j0" path="res://bmpfont_big.png" id="3_jvre7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_611ew"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_depb2"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -9,9 +16,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_740ma")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="Label" type="Label" parent="."]
 visible = false
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("1_1tf3n")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_611ew")
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 218.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("3_hqqyc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_depb2")
+text = "漢字"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +46,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BitmapFontGenerator" parent="SubViewportContainer" instance=ExtResource("1_4me1b")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer"]
 handle_input_locally = false
-render_target_update_mode = 0
+size = Vector2i(4150, 4150)
+render_target_update_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jvre7")
+expand_mode = 3

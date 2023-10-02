@@ -20,6 +20,12 @@ size_flags_stretch_ratio = 1.6
 layout_mode = 2
 theme = ExtResource("1_qghr5")
 
+[node name="Button" type="Button" parent="AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "a"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
