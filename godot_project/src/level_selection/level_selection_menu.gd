@@ -10,6 +10,7 @@ var current_page: int
 
 
 func calculate_page_end(start_index: int) -> int:
+	var meow: Array
 	var lines := 0
 	var current_line := 0
 	var index := start_index
@@ -34,7 +35,6 @@ func split_by_pages() -> void:
 	while index < len(level_list):
 		index = calculate_page_end(index)
 		pages.append(index)
-	
 
 
 func _ready() -> void:
@@ -62,6 +62,7 @@ func fill_page(page: int) -> void:
 	$AspectRatioContainer/MarginContainer.add_child(buttons_container)
 	for level_name in level_list.slice(pages[page - 1], pages[page]):
 		var level_button := Button.new()
+#		level_button.custom_minimum_size = Vector2(50.0 * len(level_name), 50.0)
 		level_button.text = level_name
 		level_button.mouse_filter = Control.MOUSE_FILTER_PASS
 		level_button.pressed.connect(select_level.bind(level_button.text))
@@ -70,6 +71,7 @@ func fill_page(page: int) -> void:
 
 
 func set_page(page: int) -> void:
+	get_global_mouse_position()
 	current_page = page
 	$HBoxContainer/LeftButton.disabled = false
 	$HBoxContainer/RightButton.disabled = false

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://cfxhkqqrj26pv"]
 
-[ext_resource type="FontFile" uid="uid://bv3y5hh5dwar8" path="res://assets/dfkyokasho std w3.otf" id="1_5mj4s"]
+[ext_resource type="FontFile" uid="uid://5y3ropigavba" path="res://assets/dfkyokasho std w3.woff2" id="1_smprn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cufo8"]
 border_width_left = 1
@@ -24,6 +24,8 @@ thickness = 10
 vertical = true
 
 [resource]
+default_font = ExtResource("1_smprn")
+default_font_size = 50
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0, 0, 0, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
@@ -40,8 +42,6 @@ Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
 Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
-Button/font_sizes/font_size = 50
-Button/fonts/font = ExtResource("1_5mj4s")
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null

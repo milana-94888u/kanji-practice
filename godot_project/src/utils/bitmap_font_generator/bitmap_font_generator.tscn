@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjtme0vapcphp"]
+
+[ext_resource type="Script" path="res://src/utils/bitmap_font_generator/bitmap_font_generator.gd" id="1_7cdo0"]
+
+[node name="BitmapFontGenerator" type="SubViewport"]
+script = ExtResource("1_7cdo0")
+
+[node name="LineToDrawWith" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(0, 0, 0, 1)
